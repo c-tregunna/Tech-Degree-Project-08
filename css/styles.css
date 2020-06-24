@@ -93,6 +93,8 @@ input[type=search]:focus {
   margin: 0 auto;
   align-items: center;
   justify-content: center;
+  min-height: calc(100vh - 80px);
+  /* to help stick the footer to the bottom of page even when searching. */
 }
 
 /* --------
