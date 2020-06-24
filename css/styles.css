@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+}
+
+/* ------
+clearfix
+------ */
+.clearfix::after {
+    content: " ";
+    display: table;
+    clear: both;
+}
+
+/* ------
+Global
+------ */
+
+body {
+    font-family: 'Josefin Sans', Helvetica, sans-serif;
+    font-size: 1em;
+    background-color: antiquewhite;
+}
