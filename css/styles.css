@@ -1,22 +1,75 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
+/* ------
+Variables
+------ */
 /* ------
 clearfix
 ------ */
 .clearfix::after {
-    content: " ";
-    display: table;
-    clear: both;
+  content: " ";
+  display: table;
+  clear: both;
 }
 
-/* ------
-Global
+/* --------
+global and headings
+------ */
+body {
+  font-family: "Josefin Sans", Helvetica, sans-serif;
+  font-size: 1em;
+  background-color: #fefefe;
+  position: relative;
+  color: #343434;
+}
+
+h1 {
+  margin: 0px;
+}
+
+/* --------
+Main Layout
+------ */
+header {
+  height: 80px;
+  box-shadow: 2px 0 4px #343434;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.grid-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 80%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  display: flex;
+  margin: 10px;
+  align-items: center;
+  border: 1px solid #343434;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.avatar {
+  height: 100%;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+/* --------
+Modal and Overlay
+------ */
+/* --------
+Media Queries
 ------ */
 
-body {
-    font-family: 'Josefin Sans', Helvetica, sans-serif;
-    font-size: 1em;
-    background-color: antiquewhite;
-}
+/*# sourceMappingURL=styles.css.map */
