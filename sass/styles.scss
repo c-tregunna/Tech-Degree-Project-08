@@ -7,7 +7,13 @@ Variables
 ------ */
 
 $color-primary: #fefefe;
-$color-secondary: #343434;
+$color-text: #343434;
+$color-hover: #e9e9e9;
+
+$color-border: #786878;
+
+$heading-font: 'Merriweather Sans', Helvetica, sans-serif;
+$text-font: 'Josefin Sans', Helvetica, sans-serif;
 
 
 /* ------
@@ -24,15 +30,35 @@ global and headings
 ------ */
 
 body {
-    font-family: 'Josefin Sans', Helvetica, sans-serif;
+    font-family: $text-font;
     font-size: 1em;
     background-color: $color-primary;
     position: relative;
-    color: $color-secondary;
+    color: $color-text;
+}
+
+h1,
+h2 {
+    font-family: $heading-font;
 }
 
 h1 {
-    margin: 0px;
+    margin: auto 20px;
+    font-size: 1.25em;
+    text-align: center;
+    line-height: 1.5em;
+    font-weight: 300;
+}
+
+h1 span {
+    font-style: italic;
+    font-weight: 700;
+}
+
+h2.name {
+    font-size: 1.25em;
+    margin-bottom: 10px;
+    font-weight: 400;
 }
 
 /* --------
@@ -40,34 +66,61 @@ Main Layout
 ------ */
 header {
     height: 80px;
-    box-shadow: 2px 0 4px $color-secondary;
+    box-shadow: 2px 0 4px $color-border;
     display: flex;
     align-items: center;
     margin-bottom: 30px;
+    justify-content: center;
+    background-color: $color-hover;
 }
+
 .grid-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    max-width:80%;
+    width: 95%;
+    max-width: 1100px;
     margin: 0 auto;
     align-items: center;
     justify-content: center;
 }
 
+/* --------
+Cards
+------ */
+
 .card {
     display: flex;
-    margin: 10px;
+    margin: 10px 20px;
     align-items: center;
-    border: 1px solid $color-secondary;
+    border: 1px solid $color-border;
     border-radius: 5px;
     padding: 10px;
+    transition: all .8s ease-in-out;
 }
+
+.card:hover {
+    transform: scale(1.01);
+    background-color: $color-hover;
+    box-shadow: 0 1px 4px $color-border;
+}
+
+/* --------
+Card content
+------ */
 
 .avatar {
     height: 100%;
     border-radius: 50%;
     margin: 10px;
+    border: 1px solid $color-border;
+    padding: 1px;
+}
+
+p.email,
+p.address {
+    margin: 6px auto;
+    font-weight: 300;
 }
 
 
@@ -80,7 +133,13 @@ Media Queries
 ------ */
 
 @media (min-width: 768px) {
-    .grid-container {
+    header {
+        justify-content: start;
+    }
+}
 
+@media (min-width: 1024px) {
+    h1 {
+        font-size: 1.75em;
     }
 }
