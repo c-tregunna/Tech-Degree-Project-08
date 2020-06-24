@@ -9,6 +9,7 @@ Variables
 $color-primary: #fefefe;
 $color-text: #343434;
 $color-hover: #e9e9e9;
+$color-focus: beige;
 
 $color-border: #786878;
 
@@ -43,7 +44,7 @@ h2 {
 }
 
 h1 {
-    margin: auto 20px;
+    // margin: auto 20px;
     font-size: 1.25em;
     text-align: center;
     line-height: 1.5em;
@@ -64,14 +65,37 @@ h2.name {
 /* --------
 Main Layout
 ------ */
-header {
-    height: 80px;
+header{
+    height: 150px;
     box-shadow: 2px 0 4px $color-border;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: space-around;
     margin-bottom: 30px;
-    justify-content: center;
     background-color: $color-hover;
+}
+
+input[type="search"] {
+    width: 70%;
+    height: 1.5em;
+    border: 1px solid $color-border;
+    border-radius: 3px;
+    transition: background-color .5s ease-in-out;
+}
+
+input[type="search"]:focus {
+    outline: none;
+    background-color: $color-focus;
+}
+
+.search-box::placeholder {
+    color: #dcdcda;
+    font-size: .75em;
+}
+
+.search-box:focus::placeholder {
+    color: transparent;
 }
 
 .grid-container {
@@ -128,13 +152,76 @@ p.address {
 Modal and Overlay
 ------ */
 
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(100, 100, 100, .4);
+}
+
+.hidden {
+    display: none;
+}
+
+.modal {
+    width: 70%;
+    margin: 10vh auto;
+    background-color: $color-primary
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    margin: auto;
+    padding: 20px;
+}
+
+.modal-close {
+    background-color: $color-primary;
+    border: none;
+    outline: none;
+    padding: 10px;
+    float: right;
+    color: lighten($color-border, 20%);
+    transition: color .5s ease-in-out;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    color: $color-text;
+}
+
+/* --------
+Footer
+------ */
+.footer {
+    height: 80px;
+    background-color: $color-hover;
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 30px;
+}
+
 /* --------
 Media Queries
 ------ */
 
 @media (min-width: 768px) {
     header {
-        justify-content: start;
+        flex-direction: row;
+        height: 100px;
+    }
+    input[type="search"] {
+        width: 35%;
+    }
+    .modal {
+        width: 40%;
+        max-width: 420px;
     }
 }
 
