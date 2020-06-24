@@ -6,8 +6,15 @@ currentYear.innerHTML = year;
 
 // Test to check modal works - to be removed
 const showModal = document.querySelector('#show');
+const closeModal = document.querySelector('.modal-close');
 
 showModal.addEventListener('click', e => {
     let modal = document.querySelector('.overlay');
     modal.classList.remove('hidden');
 });
+
+closeModal.addEventListener('click', e => {
+    let modal = document.querySelector('.overlay');
+    modal.classList.add('hidden');
+});
+
