@@ -34,7 +34,7 @@ function displayEmployees(employeeData) {
 
         employeeHTML += `
             <div class="card" data-index="${index}">
-                <img class="avatar" src="${picture.large}" />
+                <img class="avatar" src="${picture.large}" alt="Picture of employee ${name.first} ${name.last}"/>
                 <div class="text-container">
                     <h2 class="name">${name.first} ${name.last}</h2>
                     <p class="email">${email}</p>
@@ -46,6 +46,64 @@ function displayEmployees(employeeData) {
     container.innerHTML = employeeHTML;
 }
 
+/*------------
+Modal function
+-------------*/
+
+function displayModal(index) {
+    let {
+        name,
+        dob,
+        phone,
+        email,
+        location: {
+            city,
+            street,
+            state,
+            postcode
+        },
+        picture
+    } = employees[index];
+
+    let date = new Date(dob.date);
+
+    const modalHTML = `
+    <img class="avatar" src="${picture.large}" alt="Picture of employee ${name.first} ${name.last}"/>
+    <div class="text-container">
+        <h2 class="name">${name.first} ${name.last}</h2>
+        <p class="email">${email}</p>
+        <p class="address">${city}</p>
+        <hr/>
+        <p>${phone}</p>
+        <p class="address">${location.street}, ${state} ${postcode}</p>
+        <p>Birthday:
+            ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}</p>
+    </div>
+    `;
+    overlay.classList.remove('hidden');
+    modal.innerHTML = modalHTML;
+}
+
+/*------------
+Event Listeners
+-------------*/
+
+// Display modal when click a card
+container.addEventListener('click', e => {
+
+    if (e.target !== container) {
+        const card = e.target.closest(".card");
+        const index = card.getAttribute('data-index');
+
+        displayModal(index);
+    }
+});
+
+//Close modal
+closeModal.addEventListener('click', e => {
+    let modal = document.querySelector('.overlay');
+    modal.classList.add('hidden');
+});
 
 
 /*------------

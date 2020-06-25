@@ -206,11 +206,10 @@ Modal and Overlay
     align-items: center;
     width: 95%;
     margin: auto;
-    padding: 20px;
+    padding: 0px 20px 20px 20px;
 }
 
 .modal-close {
-    background-color: $color-primary;
     border: none;
     outline: none;
     margin: 10px;
@@ -220,12 +219,8 @@ Modal and Overlay
     transition: color .5s ease-in-out;
     font-size: 1.5em;
     cursor: pointer;
-    transition: transform .8s ease-in-out;
-}
-
-.modal-close:hover {
-    color: $color-text;
-    transform: rotate(360deg);
+    z-index: 10000;
+    width: 10%;
 }
 
 /* --------
