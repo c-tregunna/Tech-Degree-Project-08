@@ -108,6 +108,7 @@ Cards
   border-radius: 5px;
   padding: 10px;
   transition: all 0.8s ease-in-out;
+  width: 30%;
 }
 
 .card:hover {
@@ -120,7 +121,7 @@ Cards
 Card content
 ------ */
 .avatar {
-  height: 100%;
+  width: 20%;
   border-radius: 50%;
   margin: 10px;
   border: 1px solid #786878;
@@ -172,16 +173,19 @@ Modal and Overlay
   background-color: #fefefe;
   border: none;
   outline: none;
+  margin: 10px;
   padding: 10px;
   float: right;
   color: #aa9caa;
   transition: color 0.5s ease-in-out;
   font-size: 1.5em;
   cursor: pointer;
+  transition: transform 0.8s ease-in-out;
 }
 
 .modal-close:hover {
   color: #343434;
+  transform: rotate(360deg);
 }
 
 /* --------
@@ -193,6 +197,7 @@ Footer
   text-align: center;
   padding-top: 20px;
   margin-top: 30px;
+  border-top: 1px solid #786878;
 }
 
 /* --------
