@@ -86,7 +86,7 @@ input[type=search]:focus {
 
 .grid-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   width: 100%;
   max-width: 1200px;
@@ -108,7 +108,7 @@ Cards
   border-radius: 5px;
   padding: 10px;
   transition: all 0.8s ease-in-out;
-  width: 30%;
+  width: 80%;
 }
 
 .card:hover {
@@ -133,6 +133,7 @@ p.address {
   margin: 6px auto;
   font-weight: 300;
   font-size: 0.9em;
+  color: #818181;
 }
 
 /* --------
@@ -214,14 +215,27 @@ Media Queries
     width: 35%;
   }
 
+  .grid-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
   .modal {
     width: 40%;
     max-width: 420px;
+  }
+
+  .card {
+    width: 40%;
   }
 }
 @media (min-width: 1024px) {
   h1 {
     font-size: 1.75em;
+  }
+
+  .card {
+    width: 30%;
   }
 }
 
