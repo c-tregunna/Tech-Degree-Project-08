@@ -63,6 +63,23 @@ h2.name {
     font-weight: 400;
 }
 
+a:link,
+a:visited {
+    color: $color-text;
+    text-decoration: none;
+}
+
+p.top {
+    text-align: center;
+    font-size: 1.25em;
+    width: 60px;
+    margin: 20px auto;
+}
+
+p.top:hover{
+    text-decoration: underline;
+}
+
 /* --------
 Main Layout
 ------ */
@@ -123,15 +140,16 @@ Cards
     border: 1px solid $color-border;
     border-radius: 5px;
     padding: 10px;
-    transition: all .8s ease-in-out;
+    transition: all .5s ease-in-out;
     width: 80%;
 
 }
 
 .card:hover {
-    transform: scale(1.01);
+    // transform: scale(1.01);
     background-color: $color-hover;
     box-shadow: 0 1px 4px $color-border;
+    border-color: lighten($color-border, 50%);
 }
 
 /* --------
@@ -254,5 +272,8 @@ Media Queries
     }
     .card {
         width: 30%;
+    }
+    p.top {
+        display: none;
     }
 }
