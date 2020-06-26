@@ -10,6 +10,12 @@ const overlay = document.querySelector('.overlay');
 const modal = document.querySelector('.modal-content');
 const closeModal = document.querySelector('.modal-close');
 
+const leftArrow = document.querySelector('.left-arrow');
+const rightArrow = document.querySelector('.right-arrow');
+
+
+
+
 //----------------------------------------------
 
 /*--------------
@@ -26,6 +32,7 @@ function displayEmployees(employeeData) {
     employees = employeeData;
 
     let employeeHTML = '';
+    //console.log(employees);
 
     employees.forEach((employee, index) => {
         let name = employee.name;
@@ -84,6 +91,39 @@ function displayModal(index) {
     overlay.classList.remove('hidden');
     modal.innerHTML = modalHTML;
 }
+
+/*------------
+Move between modal windows
+-------------*/
+// employeeData  or is it employees is returned as an array of objects
+// modalHTML holds the content in the modal
+// on click of the arrow move to the next object in an array
+
+let i = 0;
+employees[i];
+
+function nextItem() {
+    for (let i = 0; i < employees.length; i += 1) {
+    return employees[i];
+    }
+}
+
+function prevItem() {
+    for (let i = 0; i < employees.length; i -= 1) {
+    return employees[i];
+    }
+}
+
+leftArrow.addEventListener('click', e => {
+    employees.push(modal).textContent = prevItem();
+})
+
+rightArrow.addEventListener('click', e => {
+    employees.push(modal).textContent = nextItem();
+})
+
+
+
 
 /*------------
 Search function
