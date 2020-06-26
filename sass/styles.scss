@@ -65,8 +65,15 @@ h2.name {
 
 a:link,
 a:visited {
-    color: $color-text;
+    color: lighten($color-p, 30%);
     text-decoration: none;
+}
+
+a {
+    transition: color .4s ease-in-out;
+}
+a:hover {
+    color: $color-text;
 }
 
 p.top {
@@ -74,10 +81,6 @@ p.top {
     font-size: 1.25em;
     width: 60px;
     margin: 20px auto;
-}
-
-p.top:hover{
-    text-decoration: underline;
 }
 
 /* --------

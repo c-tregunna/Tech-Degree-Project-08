@@ -50,8 +50,16 @@ h2.name {
 
 a:link,
 a:visited {
-  color: #343434;
+  color: #cdcdcd;
   text-decoration: none;
+}
+
+a {
+  transition: color 0.4s ease-in-out;
+}
+
+a:hover {
+  color: #343434;
 }
 
 p.top {
@@ -59,10 +67,6 @@ p.top {
   font-size: 1.25em;
   width: 60px;
   margin: 20px auto;
-}
-
-p.top:hover {
-  text-decoration: underline;
 }
 
 /* --------

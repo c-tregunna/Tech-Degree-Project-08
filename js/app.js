@@ -87,8 +87,8 @@ function displayModal(index) {
 /*------------
 Search function
 -------------*/
-
-const search = document.getElementById("searchBar");
+/*
+let search = document.getElementById("searchBar");
 
 search.addEventListener('keyup', () => {
     let searchEmployee = search.value.toLowerCase();
@@ -106,22 +106,25 @@ search.addEventListener('keyup', () => {
     });
 
 });
+*/
 
 //OR this other function, adapted from unit 05
 
-    // let employeeCard = document.querySelectorAll('.card');
-    // let searchEmployee = document.getElementById('searchBox');
-    // searchEmployee.addEventListener('keyup', function(){
-    //     let search =searchEmployee.value.toLowerCase();
-    //     for(let i = 0; i < employeeCard.length; i++) {
-    //         let searchVal = employeeCard[i].document.querySelectorAll('.name');
-    //         if(searchVal.toLowerCase().indexOf(search) > -1){
-    //             employeeCard[i].style.display = "";
-    //         }else{
-    //             employeeCard[i].style.display = "none";
-    //         }
-    //     }
-    // });
+/*
+    let employeeCard = document.querySelectorAll('.card');
+    let searchEmployee = document.getElementById('searchBox');
+    searchEmployee.addEventListener('keyup', function(){
+        let search =searchEmployee.value.toLowerCase();
+        for(let i = 0; i < employeeCard.length; i++) {
+            let searchVal = employeeCard[i].document.querySelectorAll('.name');
+            if(searchVal.toLowerCase().indexOf(search) > -1){
+                employeeCard[i].style.display = "";
+            }else{
+                employeeCard[i].style.display = "none";
+            }
+        }
+    });
+*/
 
 
 /*------------
