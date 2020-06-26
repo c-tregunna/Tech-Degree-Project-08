@@ -178,7 +178,7 @@ Modal and Overlay
   margin: 10vh auto;
   background-color: #fefefe;
   position: relative;
-  box-shadow: 4px 4px 8px #786878;
+  box-shadow: 0px 6px 8px #786878;
 }
 
 .modal-content {

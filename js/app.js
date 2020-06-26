@@ -84,6 +84,45 @@ function displayModal(index) {
     modal.innerHTML = modalHTML;
 }
 
+/*------------
+Search function
+-------------*/
+
+const search = document.getElementById("searchBar");
+
+search.addEventListener('keyup', () => {
+    let searchEmployee = search.value.toLowerCase();
+    const names = document.querySelectorAll('h2.name');
+
+    names.forEach(name => {
+        let employeeName = name.textContent.toLowerCase();
+        let employeeCard = document.querySelectorAll('.card');
+
+        if (employeeName.indexOf(searchEmployee) > -1) {
+            employeeCard.style.display = '';
+        } else {
+            employeeCard.style.display = 'none';
+        }
+    });
+
+});
+
+//OR this other function, adapted from unit 05
+
+    // let employeeCard = document.querySelectorAll('.card');
+    // let searchEmployee = document.getElementById('searchBox');
+    // searchEmployee.addEventListener('keyup', function(){
+    //     let search =searchEmployee.value.toLowerCase();
+    //     for(let i = 0; i < employeeCard.length; i++) {
+    //         let searchVal = employeeCard[i].document.querySelectorAll('.name');
+    //         if(searchVal.toLowerCase().indexOf(search) > -1){
+    //             employeeCard[i].style.display = "";
+    //         }else{
+    //             employeeCard[i].style.display = "none";
+    //         }
+    //     }
+    // });
+
 
 /*------------
 Event Listeners
