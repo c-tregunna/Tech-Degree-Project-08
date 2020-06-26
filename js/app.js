@@ -113,8 +113,9 @@ search.addEventListener('keyup', () => {
 /*
     let employeeCard = document.querySelectorAll('.card');
     let searchEmployee = document.getElementById('searchBox');
+    let employeeName = document.querySelectorAll('.name');
     searchEmployee.addEventListener('keyup', function(){
-        let search =searchEmployee.value.toLowerCase();
+        let search = searchEmployee.value.toLowerCase();
         for(let i = 0; i < employeeCard.length; i++) {
             let searchVal = employeeCard[i].document.querySelectorAll('.name');
             if(searchVal.toLowerCase().indexOf(search) > -1){
@@ -124,6 +125,26 @@ search.addEventListener('keyup', () => {
             }
         }
     });
+*/
+
+// Third attempt :(
+
+/*
+let employeeCard = document.querySelectorAll('.card');
+let searchEmployee = document.getElementById('searchBox');
+let employeeName = document.querySelectorAll('.name');
+
+searchEmployee.addEventListener('keyup', function(){
+    employeeName.forEach(name => {
+        let employeeName = name.textContent.toLowerCase();
+
+        if (employeeName.indexOf(searchEmployee) > -1) {
+            employeeCard.style.display = '';
+        } else {
+            employeeCard.style.display = 'none';
+        }
+    });
+});
 */
 
 
