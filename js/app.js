@@ -19,6 +19,7 @@ fetch(urlAPI)
     .then(res => res.json())
     .then(res => res.results)  // console.log(res.results.map(employee => employee.location.street));
     .then(displayEmployees)
+    .then(createSearchData)
     .catch(err => console.log(err))
 
 function displayEmployees(employeeData) {
@@ -87,6 +88,28 @@ function displayModal(index) {
 /*------------
 Search function
 -------------*/
+
+const searchData = []; // push first and last name into this searchData array
+function createSearchData() {
+    employees.forEach((employee) => {
+        searchData.push(`${employee.name.first.toLowerCase()} ${employee.name.last.toLowerCase()}`)
+    })
+    console.log(searchData);
+}
+
+const search = document.querySelector("#searchBox");
+search.addEventListener('keyup', () => {
+    const card = document.querySelectorAll('.card');
+    let searchVal = search.value.toLowerCase();
+    searchData.forEach((person, index) => { //for  each person in the search data array
+        if (person.includes(searchVal)) {
+            card[index].style.display = 'flex';
+        } else {
+            card[index].style.display = 'none';
+        }
+    })
+});
+
 /*
 let search = document.getElementById("searchBar");
 
