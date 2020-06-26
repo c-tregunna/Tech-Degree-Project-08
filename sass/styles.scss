@@ -83,6 +83,10 @@ p.top {
     margin: 20px auto;
 }
 
+p.email {
+    display:none;
+}
+
 /* --------
 Main Layout
 ------ */
@@ -270,9 +274,11 @@ Media Queries
         width: 40%;
         max-width: 420px;
     }
-
     .card {
         width: 40%;
+    }
+    p.email {
+        display:block;
     }
 }
 
