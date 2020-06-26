@@ -103,25 +103,33 @@ let i = 0;
 employees[i];
 
 function nextItem() {
-    for (let i = 0; i < employees.length; i += 1) {
+    i = i + 1;
+    i = i % employees.length;
     return employees[i];
-    }
 }
 
 function prevItem() {
-    for (let i = 0; i < employees.length; i -= 1) {
-    return employees[i];
+    if (i === 0) {
+        i = employees.length;
     }
+    i = i - 1;
+    return employees[i];
 }
 
+modal.innerHTML = employees[0];
+
 leftArrow.addEventListener('click', e => {
-    employees.push(modal).textContent = prevItem();
+    modal.innerHTML = prevItem();
 })
 
 rightArrow.addEventListener('click', e => {
-    employees.push(modal).textContent = nextItem();
+    modal.innerHTML = nextItem();
 })
 
+
+// for (let i = 0; i < employees.length; i += 1) {
+//     return employees[i];
+// }
 
 
 
