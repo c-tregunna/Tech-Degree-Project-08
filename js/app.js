@@ -17,7 +17,7 @@ Fetch info from API
 --------------*/
 fetch(urlAPI)
     .then(res => res.json())
-    .then(res =>res.results)
+    .then(res => res.results)  // console.log(res.results.map(employee => employee.location.street));
     .then(displayEmployees)
     .catch(err => console.log(err))
 
@@ -75,7 +75,7 @@ function displayModal(index) {
         <p class="address">${city}</p>
         <hr/>
         <p>${phone}</p>
-        <p class="address">${location.street}, ${state} ${postcode}</p>
+        <p class="address">${street.number}, ${street.name}, ${state} ${postcode}</p>
         <p>Birthday:
             ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}</p>
     </div>
@@ -83,6 +83,7 @@ function displayModal(index) {
     overlay.classList.remove('hidden');
     modal.innerHTML = modalHTML;
 }
+
 
 /*------------
 Event Listeners

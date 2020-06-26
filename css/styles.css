@@ -177,6 +177,8 @@ Modal and Overlay
   width: 70%;
   margin: 10vh auto;
   background-color: #fefefe;
+  position: relative;
+  box-shadow: 4px 4px 8px #786878;
 }
 
 .modal-content {
@@ -185,21 +187,30 @@ Modal and Overlay
   align-items: center;
   width: 95%;
   margin: auto;
-  padding: 0px 20px 20px 20px;
+  padding: 20px;
 }
 
 .modal-close {
   border: none;
   outline: none;
-  margin: 10px;
-  padding: 10px;
-  float: right;
-  color: #aa9caa;
-  transition: color 0.5s ease-in-out;
   font-size: 1.5em;
   cursor: pointer;
   z-index: 10000;
-  width: 10%;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: transparent;
+}
+
+.modal-close svg {
+  width: 20px;
+  height: 20px;
+  opacity: 0.1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.modal-close svg:hover {
+  opacity: 1;
 }
 
 /* --------
