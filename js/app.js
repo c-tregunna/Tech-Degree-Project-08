@@ -32,7 +32,7 @@ function displayEmployees(employeeData) {
     employees = employeeData;
 
     let employeeHTML = '';
-    //console.log(employees);
+    console.log(employeeData);
 
     employees.forEach((employee, index) => {
         let name = employee.name;
@@ -104,7 +104,7 @@ employees[i];
 
 function nextItem() {
     i = i + 1;
-    i = i % employees.length;
+    //i = i % employees.length;
     return employees[i];
 }
 
@@ -115,8 +115,6 @@ function prevItem() {
     i = i - 1;
     return employees[i];
 }
-
-modal.innerHTML = employees[0];
 
 leftArrow.addEventListener('click', e => {
     modal.innerHTML = prevItem();
