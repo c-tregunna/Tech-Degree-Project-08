@@ -121,6 +121,11 @@ function prevItem() {
             ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}</p>
         </div>
     `
+    if(position === 0) {
+        leftArrow.style.display = 'none';
+    } else if (position >= 1){
+        leftArrow.style.display = 'block';
+    }
 }
 
 function nextItem() {
