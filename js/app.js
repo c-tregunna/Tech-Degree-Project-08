@@ -114,8 +114,7 @@ function prevItem() {
             <hr/>
             <p>${employees[position].phone}</p>
             <p class="address">${employees[position].location.street.number}, ${employees[position].location.street.name}, ${employees[position].location.state} ${employees[position].location.postcode}</p>
-            <p>Birthday:
-            ${employees[position].date.getDate()}/${employees[position].date.getMonth()}/${employees[position].date.getFullYear()}</p>
+ 
 
         </div>
     `
@@ -132,8 +131,7 @@ function nextItem() {
             <hr/>
             <p>${employees[position].phone}</p>
             <p class="address">${employees[position].location.street.number}, ${employees[position].location.street.name}, ${employees[position].location.state} ${employees[position].location.postcode}</p>
-            <p>Birthday:
-            ${employees[position].date.getDate()}/${employees[position].date.getMonth()}/${employees[position].date.getFullYear()}</p>
+
         </div>
 
     `
