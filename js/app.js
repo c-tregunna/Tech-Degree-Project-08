@@ -13,6 +13,8 @@ const closeModal = document.querySelector('.modal-close');
 const leftArrow = document.querySelector('.left-arrow');
 const rightArrow = document.querySelector('.right-arrow');
 
+const position =[];
+
 
 
 
@@ -105,11 +107,14 @@ console.log(employeeCount);
 
 
 function prevItem() {
-    employeeCount = - 1;
+    position -= 1;
+    modal.innerHTML = `
+        <img class="avatar" src="${employees[position].picture.large}" alt="Picture of employee ${employees[position].name.first} ${employees[position].name.last}"/>
+    `
 }
 
 function nextItem() {
-    employeeCount = + 1;
+    employeeCount = index + 1;
 }
 
     leftArrow.addEventListener('click', e => {
@@ -264,6 +269,8 @@ container.addEventListener('click', e => {
 
         displayModal(index);
     }
+
+    position = card.getAttribute('data-index');
 });
 
 //Close modal
