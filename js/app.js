@@ -13,7 +13,7 @@ const closeModal = document.querySelector('.modal-close');
 const leftArrow = document.querySelector('.left-arrow');
 const rightArrow = document.querySelector('.right-arrow');
 
-const position = 0;
+let position = 0;
 
 
 
@@ -98,15 +98,25 @@ function displayModal(index) {
     Move between modal windows
     -------------*/
 
-let employeeCount = employees.indexOf(employees[index]);
+// let employeeCount = employees.indexOf(employees[index]);
 
-console.log(employeeCount);
+// console.log(employeeCount);
 
 
 function prevItem() {
     position -= 1;
     modal.innerHTML = `
         <img class="avatar" src="${employees[position].picture.large}" alt="Picture of employee ${employees[position].name.first} ${employees[position].name.last}"/>
+        <div class="text-container">
+            <h2 class="name">${employees[position].name.first} ${employees[position].name.last}</h2>
+            <p class="email">${employees[position].email}</p>
+            <p class="address">${employees[position].location.city}</p>
+            <hr/>
+            <p>${employees[position].phone}</p>
+            <p class="address">${employees[position].location.street.number}, ${employees[position].location.street.name}, ${employees[position].location.state} ${employees[position].location.postcode}</p>
+            <p>Birthday:
+            ${employees[position].date.getDate()}/${employees[position].date.getMonth()}/${employees[position].date.getFullYear()}</p>
+        </div>
     `
 }
 
@@ -118,11 +128,11 @@ function nextItem() {
 }
 
     leftArrow.addEventListener('click', e => {
-        modal.innerHTML =  prevItem();
+        prevItem();
     })
 
     rightArrow.addEventListener('click', e => {
-        modal.innerHTML = nextItem();
+        nextItem();
     })
 
 
@@ -194,66 +204,6 @@ search.addEventListener('keyup', () => {
         }
     })
 });
-
-/*
-let search = document.getElementById("searchBar");
-
-search.addEventListener('keyup', () => {
-    let searchEmployee = search.value.toLowerCase();
-    const names = document.querySelectorAll('h2.name');
-
-    names.forEach(name => {
-        let employeeName = name.textContent.toLowerCase();
-        let employeeCard = document.querySelectorAll('.card');
-
-        if (employeeName.indexOf(searchEmployee) > -1) {
-            employeeCard.style.display = '';
-        } else {
-            employeeCard.style.display = 'none';
-        }
-    });
-
-});
-*/
-
-//OR this other function, adapted from unit 05
-
-/*
-    let employeeCard = document.querySelectorAll('.card');
-    let searchEmployee = document.getElementById('searchBox');
-    let employeeName = document.querySelectorAll('.name');
-    searchEmployee.addEventListener('keyup', function(){
-        let search = searchEmployee.value.toLowerCase();
-        for(let i = 0; i < employeeCard.length; i++) {
-            let searchVal = employeeCard[i].document.querySelectorAll('.name');
-            if(searchVal.toLowerCase().indexOf(search) > -1){
-                employeeCard[i].style.display = "";
-            }else{
-                employeeCard[i].style.display = "none";
-            }
-        }
-    });
-*/
-
-// Third attempt :(
-
-/*
-let employeeCard = document.querySelectorAll('.card');
-let searchEmployee = document.getElementById('searchBox');
-let employeeName = document.querySelectorAll('.name');
-
-searchEmployee.addEventListener('keyup', function(){
-    employeeName.forEach(name => {
-        let employeeName = name.textContent.toLowerCase();
-
-        if (employeeName.indexOf(searchEmployee) > -1) {
-            employeeCard.style.display = '';
-        } else {
-            employeeCard.style.display = 'none';
-        }
-    });
-});
-*/
 
 
 /*------------
