@@ -114,7 +114,9 @@ function prevItem() {
             <hr/>
             <p>${employees[position].phone}</p>
             <p class="address">${employees[position].location.street.number}, ${employees[position].location.street.name}, ${employees[position].location.state} ${employees[position].location.postcode}</p>
- 
+            <p>Birthday:
+            ${employees[position].date.getDate()}/${employees[position].date.getMonth()}/${employees[position].date.getFullYear()}</p>
+
 
         </div>
     `
@@ -228,7 +230,7 @@ container.addEventListener('click', e => {
         const index = card.getAttribute('data-index');
 
         displayModal(index);
-        position = card.getAttribute('data-index');
+        position = parseInt(card.getAttribute('data-index'));
     }
 });
 
