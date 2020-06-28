@@ -98,9 +98,6 @@ function displayModal(index) {
     Move between modal windows
     -------------*/
 
-
-
-
 let employeeCount = employees.indexOf(employees[index]);
 
 console.log(employeeCount);
@@ -114,7 +111,10 @@ function prevItem() {
 }
 
 function nextItem() {
-    employeeCount = index + 1;
+    position += 1;
+    modal.innerHTML = `
+        <img class="avatar" src="${employees[position].picture.large}" alt="Picture of employee ${employees[position].name.first} ${employees[position].name.last}"/>
+    `
 }
 
     leftArrow.addEventListener('click', e => {
