@@ -95,18 +95,7 @@ function displayModal(index) {
     /*------------
     Move between modal windows
     -------------*/
-employees[index] = 0;
-
-modal.innerHTML = text[employees];
-
-function prevItem(){
-    if(employees == 0){
-        employees = text.length - 1;}
-    else{
-        employees--;}
-
-    document.getElementById("textHere").innerHTML = text[Current];
-}
+let employeeCount = employees[index];
 
     leftArrow.addEventListener('click', e => {
         modal.innerHTML =  prevItem();
