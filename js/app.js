@@ -99,6 +99,11 @@ Move between modal windows
 // modalHTML holds the content in the modal
 // on click of the arrow move to the next object in an array
 
+const currentIndex = employees[0];
+
+for (let i = 0; i < employees.length; i += 1)
+
+/*
 let i = 0;
 employees[i];
 
@@ -123,6 +128,7 @@ leftArrow.addEventListener('click', e => {
 rightArrow.addEventListener('click', e => {
     modal.innerHTML = nextItem();
 })
+*/
 
 
 // for (let i = 0; i < employees.length; i += 1) {
