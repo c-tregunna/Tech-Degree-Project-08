@@ -95,7 +95,16 @@ function displayModal(index) {
     /*------------
     Move between modal windows
     -------------*/
+
 let employeeCount = employees[index];
+
+function prevItem() {
+    employeeCount = 1;
+}
+
+function nextItem() {
+    employeeCount = 1;
+}
 
     leftArrow.addEventListener('click', e => {
         modal.innerHTML =  prevItem();
