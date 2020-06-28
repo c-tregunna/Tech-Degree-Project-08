@@ -10,6 +10,8 @@ const overlay = document.querySelector('.overlay');
 const modal = document.querySelector('.modal-content');
 const closeModal = document.querySelector('.modal-close');
 
+const modalContainer = document.querySelector('.modal');
+
 const leftArrow = document.querySelector('.left-arrow');
 const rightArrow = document.querySelector('.right-arrow');
 
@@ -105,6 +107,7 @@ function displayModal(index) {
 
 function prevItem() {
     position -= 1;
+    let date = new Date(employees[position].dob.date);
     modal.innerHTML = `
         <img class="avatar" src="${employees[position].picture.large}" alt="Picture of employee ${employees[position].name.first} ${employees[position].name.last}"/>
         <div class="text-container">
@@ -115,16 +118,14 @@ function prevItem() {
             <p>${employees[position].phone}</p>
             <p class="address">${employees[position].location.street.number}, ${employees[position].location.street.name}, ${employees[position].location.state} ${employees[position].location.postcode}</p>
             <p>Birthday:
-            ${employees[position].date.getDate()}/${employees[position].date.getMonth()}/${employees[position].date.getFullYear()}</p>
-
-
-
+            ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}</p>
         </div>
     `
 }
 
 function nextItem() {
     position += 1;
+    let date = new Date(employees[position].dob.date);
     modal.innerHTML = `
         <img class="avatar" src="${employees[position].picture.large}" alt="Picture of employee ${employees[position].name.first} ${employees[position].name.last}"/>
         <div class="text-container">
@@ -150,49 +151,12 @@ function nextItem() {
         nextItem();
     })
 
-
 }
 
 
 // employeeData  or is it employees is returned as an array of objects
 // modalHTML holds the content in the modal
 // on click of the arrow move to the next object in an array
-
-
-
-
-/*
-let i = 0;
-employees[i];
-
-function nextItem() {
-    i = i + 1;
-    //i = i % employees.length;
-    return employees[i];
-}
-
-function prevItem() {
-    if (i === 0) {
-        i = employees.length;
-    }
-    i = i - 1;
-    return employees[i];
-}
-
-leftArrow.addEventListener('click', e => {
-    modal.innerHTML = prevItem();
-})
-
-rightArrow.addEventListener('click', e => {
-    modal.innerHTML = nextItem();
-})
-*/
-
-
-// for (let i = 0; i < employees.length; i += 1) {
-//     return employees[i];
-// }
-
 
 
 /*------------
@@ -237,6 +201,15 @@ container.addEventListener('click', e => {
     }
 });
 
+// modalContainer.addEventListener('click', e => {
+//     if (employees[position] === 0) {
+//         hide(leftArrow);
+//     } if (employees[position] === 11) {
+//         hide(rightArrow);
+//     }
+// })
+
+
 //Close modal
 closeModal.addEventListener('click', e => {
     let modal = document.querySelector('.overlay');
@@ -271,4 +244,3 @@ closeModal.addEventListener('click', e => {
     modal.classList.add('hidden');
 });
 */
-
