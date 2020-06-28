@@ -115,7 +115,8 @@ function prevItem() {
             <p>${employees[position].phone}</p>
             <p class="address">${employees[position].location.street.number}, ${employees[position].location.street.name}, ${employees[position].location.state} ${employees[position].location.postcode}</p>
             <p>Birthday:
-            ${employees[position].date.getDate()}/${employees[position].date.getMonth()}/${employees[position].date.getFullYear()}</p>
+            ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}</p>
+
         </div>
     `
 }
@@ -124,6 +125,15 @@ function nextItem() {
     position += 1;
     modal.innerHTML = `
         <img class="avatar" src="${employees[position].picture.large}" alt="Picture of employee ${employees[position].name.first} ${employees[position].name.last}"/>
+        <div class="text-container">
+            <h2 class="name">${employees[position].name.first} ${employees[position].name.last}</h2>
+            <p class="email">${employees[position].email}</p>
+            <p class="address">${employees[position].location.city}</p>
+            <hr/>
+            <p>${employees[position].phone}</p>
+            <p class="address">${employees[position].location.street.number}, ${employees[position].location.street.name}, ${employees[position].location.state} ${employees[position].location.postcode}</p>
+        </div>
+
     `
 }
 
