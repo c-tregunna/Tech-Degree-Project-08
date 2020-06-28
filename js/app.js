@@ -90,18 +90,42 @@ function displayModal(index) {
     `;
     overlay.classList.remove('hidden');
     modal.innerHTML = modalHTML;
+    console.log(modalHTML);
+
+    /*------------
+    Move between modal windows
+    -------------*/
+employees[index] = 0;
+
+modal.innerHTML = text[employees];
+
+function prevItem(){
+    if(employees == 0){
+        employees = text.length - 1;}
+    else{
+        employees--;}
+
+    document.getElementById("textHere").innerHTML = text[Current];
 }
 
-/*------------
-Move between modal windows
--------------*/
+    leftArrow.addEventListener('click', e => {
+        modal.innerHTML =  prevItem();
+    })
+
+    rightArrow.addEventListener('click', e => {
+        modal.innerHTML = nextItem();
+    })
+
+
+}
+
+
 // employeeData  or is it employees is returned as an array of objects
 // modalHTML holds the content in the modal
 // on click of the arrow move to the next object in an array
 
-const currentIndex = employees[0];
 
-for (let i = 0; i < employees.length; i += 1)
+
 
 /*
 let i = 0;
