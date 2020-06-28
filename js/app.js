@@ -13,7 +13,7 @@ const closeModal = document.querySelector('.modal-close');
 const leftArrow = document.querySelector('.left-arrow');
 const rightArrow = document.querySelector('.right-arrow');
 
-const position =[];
+const position = 0;
 
 
 
@@ -268,9 +268,8 @@ container.addEventListener('click', e => {
         const index = card.getAttribute('data-index');
 
         displayModal(index);
+        position = card.getAttribute('data-index');
     }
-
-    position = card.getAttribute('data-index');
 });
 
 //Close modal
