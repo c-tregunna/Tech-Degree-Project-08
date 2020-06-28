@@ -17,9 +17,6 @@ const rightArrow = document.querySelector('.right-arrow');
 
 let position = 0;
 
-
-
-
 //----------------------------------------------
 
 /*--------------
@@ -99,54 +96,59 @@ function displayModal(index) {
     /*------------
     Move between modal windows
     -------------*/
+    // employeeData  or is it employees is returned as an array of objects
+    // modalHTML holds the content in the modal
+    // on click of the arrow move to the next object in an array
 
-// let employeeCount = employees.indexOf(employees[index]);
 
-// console.log(employeeCount);
+    function prevItem() {
+        position -= 1;
+        let date = new Date(employees[position].dob.date);
+        modal.innerHTML = `
+            <img class="avatar" src="${employees[position].picture.large}" alt="Picture of employee ${employees[position].name.first} ${employees[position].name.last}"/>
+            <div class="text-container">
+                <h2 class="name">${employees[position].name.first} ${employees[position].name.last}</h2>
+                <p class="email">${employees[position].email}</p>
+                <p class="address">${employees[position].location.city}</p>
+                <hr/>
+                <p>${employees[position].phone}</p>
+                <p class="address">${employees[position].location.street.number}, ${employees[position].location.street.name}, ${employees[position].location.state} ${employees[position].location.postcode}</p>
+                <p>Birthday:
+                ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}</p>
+            </div>
+        `;
+        if(position === 0) {
+            leftArrow.style.display = "none";
+        } else {
+            rightArrow.style.display = "block";
+        }
 
-
-function prevItem() {
-    position -= 1;
-    let date = new Date(employees[position].dob.date);
-    modal.innerHTML = `
-        <img class="avatar" src="${employees[position].picture.large}" alt="Picture of employee ${employees[position].name.first} ${employees[position].name.last}"/>
-        <div class="text-container">
-            <h2 class="name">${employees[position].name.first} ${employees[position].name.last}</h2>
-            <p class="email">${employees[position].email}</p>
-            <p class="address">${employees[position].location.city}</p>
-            <hr/>
-            <p>${employees[position].phone}</p>
-            <p class="address">${employees[position].location.street.number}, ${employees[position].location.street.name}, ${employees[position].location.state} ${employees[position].location.postcode}</p>
-            <p>Birthday:
-            ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}</p>
-        </div>
-    `
-    if(position === 0) {
-        leftArrow.style.display = 'none';
-    } else if (position >= 1){
-        leftArrow.style.display = 'block';
     }
-}
 
-function nextItem() {
-    position += 1;
-    let date = new Date(employees[position].dob.date);
-    modal.innerHTML = `
-        <img class="avatar" src="${employees[position].picture.large}" alt="Picture of employee ${employees[position].name.first} ${employees[position].name.last}"/>
-        <div class="text-container">
-            <h2 class="name">${employees[position].name.first} ${employees[position].name.last}</h2>
-            <p class="email">${employees[position].email}</p>
-            <p class="address">${employees[position].location.city}</p>
-            <hr/>
-            <p>${employees[position].phone}</p>
-            <p class="address">${employees[position].location.street.number}, ${employees[position].location.street.name}, ${employees[position].location.state} ${employees[position].location.postcode}</p>
-            <p>Birthday:
-            ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}</p>
+    function nextItem() {
+        position += 1;
+        let date = new Date(employees[position].dob.date);
+        modal.innerHTML = `
+            <img class="avatar" src="${employees[position].picture.large}" alt="Picture of employee ${employees[position].name.first} ${employees[position].name.last}"/>
+            <div class="text-container">
+                <h2 class="name">${employees[position].name.first} ${employees[position].name.last}</h2>
+                <p class="email">${employees[position].email}</p>
+                <p class="address">${employees[position].location.city}</p>
+                <hr/>
+                <p>${employees[position].phone}</p>
+                <p class="address">${employees[position].location.street.number}, ${employees[position].location.street.name}, ${employees[position].location.state} ${employees[position].location.postcode}</p>
+                <p>Birthday:
+                ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}</p>
 
-        </div>
+            </div>
 
-    `
-}
+        `
+        if(position === 11) {
+            rightArrow.style.display = "none";
+        } else {
+            leftArrow.style.display = "block";
+        }
+    }
 
     leftArrow.addEventListener('click', e => {
         prevItem();
@@ -157,12 +159,6 @@ function nextItem() {
     })
 
 }
-
-
-// employeeData  or is it employees is returned as an array of objects
-// modalHTML holds the content in the modal
-// on click of the arrow move to the next object in an array
-
 
 /*------------
 Search function
@@ -206,21 +202,12 @@ container.addEventListener('click', e => {
     }
 });
 
-// modalContainer.addEventListener('click', e => {
-//     if (employees[position] === 0) {
-//         hide(leftArrow);
-//     } if (employees[position] === 11) {
-//         hide(rightArrow);
-//     }
-// })
-
 
 //Close modal
 closeModal.addEventListener('click', e => {
     let modal = document.querySelector('.overlay');
     modal.classList.add('hidden');
 });
-
 
 /*------------
 Adds year to footer
@@ -231,21 +218,3 @@ let year = today.getFullYear();
 let currentYear = document.querySelector('#date');
 currentYear.innerHTML = year;
 
-
-
-
-// Test to check modal works - to be removed
-/*
-const showModal = document.querySelector('#show');
-const closeModal = document.querySelector('.modal-close');
-
-showModal.addEventListener('click', e => {
-    let modal = document.querySelector('.overlay');
-    modal.classList.remove('hidden');
-});
-
-closeModal.addEventListener('click', e => {
-    let modal = document.querySelector('.overlay');
-    modal.classList.add('hidden');
-});
-*/
