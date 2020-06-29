@@ -103,7 +103,8 @@ function displayModal(index) {
 
     //let employeeCount = employees[index];
 
-    let employeeCount = employees.indexOf(employees[index])
+
+    let employeeCount = employees.indexOf(employees[index]); //this should keep you at current index when clicked and not keep adding some you skip
     let position = employeeCount;
 
 
