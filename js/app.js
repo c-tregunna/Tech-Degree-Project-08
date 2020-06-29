@@ -106,7 +106,6 @@ function displayModal(index) {
     let employeeCount = employees.indexOf(employees[index])
     let position = employeeCount;
 
-    //let employeeCount = employees.indexOf(employees[index]);
 
     console.log(employeeCount);
 
