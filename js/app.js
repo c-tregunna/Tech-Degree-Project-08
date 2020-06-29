@@ -1,8 +1,6 @@
 /*------------
 Global Variables
 -------------*/
-
-
 let employees = [];
 const urlAPI = 'https://randomuser.me/api/?results=12&inc=name, picture, email, location, phone,dob &noinfo &nat=GB'
 const container = document.querySelector('.grid-container');
@@ -15,9 +13,6 @@ const modalContainer = document.querySelector('.modal');
 const leftArrow = document.querySelector('.left-arrow');
 const rightArrow = document.querySelector('.right-arrow');
 
-// let employeeCount = employees.indexOf(employees[index])
-// let position = employeeCount;
-
 //----------------------------------------------
 
 /*--------------
@@ -25,7 +20,7 @@ Fetch info from API
 --------------*/
 fetch(urlAPI)
     .then(res => res.json())
-    .then(res => res.results)  // console.log(res.results.map(employee => employee.location.street));
+    .then(res => res.results)
     .then(displayEmployees)
     .then(createSearchData)
     .catch(err => console.log(err))
@@ -92,7 +87,6 @@ function displayModal(index) {
     `;
     overlay.classList.remove('hidden');
     modal.innerHTML = modalHTML;
-    console.log(modalHTML);
 
     /*------------
     Move between modal windows
@@ -101,14 +95,8 @@ function displayModal(index) {
     // modalHTML holds the content in the modal
     // on click of the arrow move to the next object in an array
 
-    //let employeeCount = employees[index];
-
-
     let employeeCount = employees.indexOf(employees[index]); //this should keep you at current index when clicked and not keep adding some you skip
     let position = employeeCount;
-
-
-    console.log(employeeCount);
 
     function employeeScroll(callback) { // callback function, called in next and prev items function. Stops repeating code
         let date = new Date(employees[position].dob.date); //Important to create new date
@@ -123,10 +111,8 @@ function displayModal(index) {
                 <p class="address">${employees[position].location.street.number}, ${employees[position].location.street.name}, ${employees[position].location.state} ${employees[position].location.postcode}</p>
                 <p>Birthday:
                 ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}</p>
-
             </div>
-
-        `
+            `
 }
 
     function prevItem() {
@@ -151,17 +137,11 @@ function displayModal(index) {
 
     leftArrow.addEventListener('click', e => {
         prevItem();
-        console.log(position);
     })
 
     rightArrow.addEventListener('click', e => {
         nextItem();
-        console.log(position);
     })
-
-    console.log(position);
-
-
 }
 
 /*------------
