@@ -100,34 +100,8 @@ function displayModal(index) {
     // modalHTML holds the content in the modal
     // on click of the arrow move to the next object in an array
 
-
-    function prevItem() {
-        position -= 1;
-        let date = new Date(employees[position].dob.date);
-        modal.innerHTML = `
-            <img class="avatar" src="${employees[position].picture.large}" alt="Picture of employee ${employees[position].name.first} ${employees[position].name.last}"/>
-            <div class="text-container">
-                <h2 class="name">${employees[position].name.first} ${employees[position].name.last}</h2>
-                <p class="email">${employees[position].email}</p>
-                <p class="address">${employees[position].location.city}</p>
-                <hr/>
-                <p>${employees[position].phone}</p>
-                <p class="address">${employees[position].location.street.number}, ${employees[position].location.street.name}, ${employees[position].location.state} ${employees[position].location.postcode}</p>
-                <p>Birthday:
-                ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}</p>
-            </div>
-        `;
-        if(position === 0) {
-            leftArrow.style.display = "none";
-        } else {
-            rightArrow.style.display = "block";
-        }
-
-    }
-
-    function nextItem() {
-        position += 1;
-        let date = new Date(employees[position].dob.date);
+    function employeeScroll(callback) { // callback function, called in next and prev items function. Stops repeating code
+        let date = new Date(employees[position].dob.date); //Important to create new date
         modal.innerHTML = `
             <img class="avatar" src="${employees[position].picture.large}" alt="Picture of employee ${employees[position].name.first} ${employees[position].name.last}"/>
             <div class="text-container">
@@ -143,10 +117,25 @@ function displayModal(index) {
             </div>
 
         `
-        if(position === 11) {
+}
+
+    function prevItem() {
+        position -= 1;
+        employeeScroll(); // call the function employeeScroll to show the modal content
+        if(position === 0) { // when index reaches 0 hide left arrow
+            leftArrow.style.display = "none";
+        } else {
+            rightArrow.style.display = "block"; // else show right arrow when you click prev arrow
+        }
+    }
+
+    function nextItem() {
+        position += 1;
+        employeeScroll(); // call the function employeeScroll to show the modal content
+        if(position === 11) { // when index reaches 11 hide right arrow
             rightArrow.style.display = "none";
         } else {
-            leftArrow.style.display = "block";
+            leftArrow.style.display = "block"; // else show left arrow when you click next arrow
         }
     }
 
