@@ -15,7 +15,8 @@ const modalContainer = document.querySelector('.modal');
 const leftArrow = document.querySelector('.left-arrow');
 const rightArrow = document.querySelector('.right-arrow');
 
-let position = 0;
+// let employeeCount = employees.indexOf(employees[index])
+// let position = employeeCount;
 
 //----------------------------------------------
 
@@ -100,6 +101,15 @@ function displayModal(index) {
     // modalHTML holds the content in the modal
     // on click of the arrow move to the next object in an array
 
+    //let employeeCount = employees[index];
+
+    let employeeCount = employees.indexOf(employees[index])
+    let position = employeeCount;
+
+    //let employeeCount = employees.indexOf(employees[index]);
+
+    console.log(employeeCount);
+
     function employeeScroll(callback) { // callback function, called in next and prev items function. Stops repeating code
         let date = new Date(employees[position].dob.date); //Important to create new date
         modal.innerHTML = `
@@ -141,11 +151,16 @@ function displayModal(index) {
 
     leftArrow.addEventListener('click', e => {
         prevItem();
+        console.log(position);
     })
 
     rightArrow.addEventListener('click', e => {
         nextItem();
+        console.log(position);
     })
+
+    console.log(position);
+
 
 }
 
