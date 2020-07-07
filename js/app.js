@@ -120,7 +120,9 @@ function displayModal(index) {
         employeeScroll(); // call the function employeeScroll to show the modal content
         if(position === 0) { // when index reaches 0 hide left arrow
             leftArrow.style.display = "none";
-        } else {
+        } if (employees[position] < 0) {
+            leftArrow.style.display = "none";
+        }else {
             rightArrow.style.display = "block"; // else show right arrow when you click prev arrow
         }
     }
