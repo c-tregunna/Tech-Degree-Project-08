@@ -11,7 +11,10 @@ const closeModal = document.querySelector('.modal-close');
 const modalContainer = document.querySelector('.modal');
 
 const leftArrow = document.querySelector('.left-arrow');
+leftArrow.style.display = 'none';
 const rightArrow = document.querySelector('.right-arrow');
+
+
 
 //----------------------------------------------
 
@@ -98,6 +101,9 @@ function displayModal(index) {
     let employeeCount = employees.indexOf(employees[index]); //this should keep you at current index when clicked and not keep adding some you skip
     let position = employeeCount;
 
+
+
+
     function employeeScroll(callback) { // callback function, called in next and prev items function. Stops repeating code
         let date = new Date(employees[position].dob.date); //Important to create new date
         modal.innerHTML = `
@@ -120,11 +126,9 @@ function displayModal(index) {
         employeeScroll(); // call the function employeeScroll to show the modal content
         if(position === 0) { // when index reaches 0 hide left arrow
             leftArrow.style.display = "none";
-        } if (employees[position] < 0) {
-            return null;
+        } if (position < 0) {
             leftArrow.style.display = "none";
-
-        }else {
+        } else {
             rightArrow.style.display = "block"; // else show right arrow when you click prev arrow
         }
     }
@@ -134,11 +138,20 @@ function displayModal(index) {
         employeeScroll(); // call the function employeeScroll to show the modal content
         if(position === 11) { // when index reaches 11 hide right arrow
             rightArrow.style.display = "none";
-        } else {
+        } if (position < 0) {
+            leftArrow.style.display = "none";
+        }else {
             leftArrow.style.display = "block"; // else show left arrow when you click next arrow
         }
     }
 
+    position === 0
+        ? leftArrow.style.display = 'none'
+        : leftArrow.style.display = 'block';
+
+    position === 11
+        ? rightArrow.style.display = 'none'
+        : rightArrow.style.display = 'block';
     leftArrow.addEventListener('click', e => {
         prevItem();
     })
