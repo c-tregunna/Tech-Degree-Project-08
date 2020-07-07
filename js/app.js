@@ -126,8 +126,6 @@ function displayModal(index) {
         employeeScroll(); // call the function employeeScroll to show the modal content
         if(position === 0) { // when index reaches 0 hide left arrow
             leftArrow.style.display = "none";
-        } if (position < 0) {
-            leftArrow.style.display = "none";
         } else {
             rightArrow.style.display = "block"; // else show right arrow when you click prev arrow
         }
@@ -138,18 +136,16 @@ function displayModal(index) {
         employeeScroll(); // call the function employeeScroll to show the modal content
         if(position === 11) { // when index reaches 11 hide right arrow
             rightArrow.style.display = "none";
-        } if (position < 0) {
-            leftArrow.style.display = "none";
-        }else {
+        } else {
             leftArrow.style.display = "block"; // else show left arrow when you click next arrow
         }
     }
 
-    position === 0
+    position === 0 // will hide left arrow in first modal
         ? leftArrow.style.display = 'none'
         : leftArrow.style.display = 'block';
 
-    position === 11
+    position === 11 // will hide right arrow in last modal
         ? rightArrow.style.display = 'none'
         : rightArrow.style.display = 'block';
     leftArrow.addEventListener('click', e => {
